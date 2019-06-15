@@ -41,6 +41,7 @@
             this.averageLabel = new System.Windows.Forms.Label();
             this.logout = new System.Windows.Forms.Label();
             this.timetablePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.timetableLabel = new System.Windows.Forms.Label();
             this.timetableListView = new System.Windows.Forms.ListView();
             this.dateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FormHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,13 +49,19 @@
             this.teacherHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.timetableLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.PrevButton = new System.Windows.Forms.Button();
+            this.monthRadio = new System.Windows.Forms.RadioButton();
+            this.weekRadio = new System.Windows.Forms.RadioButton();
+            this.dayRadio = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackgroundPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuLogoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetablePictureButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesPictureButton)).BeginInit();
             this.gradesPanel.SuspendLayout();
             this.timetablePanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBackgroundPicture
@@ -185,15 +192,28 @@
             this.timetablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97F));
             this.timetablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.5F));
             this.timetablePanel.Controls.Add(this.timetableLabel, 1, 0);
-            this.timetablePanel.Controls.Add(this.timetableListView, 1, 1);
+            this.timetablePanel.Controls.Add(this.timetableListView, 1, 2);
+            this.timetablePanel.Controls.Add(this.groupBox1, 1, 1);
             this.timetablePanel.Location = new System.Drawing.Point(0, 180);
             this.timetablePanel.Name = "timetablePanel";
-            this.timetablePanel.RowCount = 2;
-            this.timetablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.timetablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94F));
+            this.timetablePanel.RowCount = 3;
+            this.timetablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timetablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timetablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 309F));
             this.timetablePanel.Size = new System.Drawing.Size(706, 388);
             this.timetablePanel.TabIndex = 7;
-            this.timetableLabel.Text = "Miesięczny plan zajęć";
+            // 
+            // timetableLabel
+            // 
+            this.timetableLabel.BackColor = System.Drawing.Color.White;
+            this.timetableLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timetableLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timetableLabel.Location = new System.Drawing.Point(13, 0);
+            this.timetableLabel.Name = "timetableLabel";
+            this.timetableLabel.Size = new System.Drawing.Size(678, 39);
+            this.timetableLabel.TabIndex = 1;
+            this.timetableLabel.Text = "Plan zajęć";
+            this.timetableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timetableListView
             // 
@@ -208,9 +228,9 @@
             this.timetableListView.FullRowSelect = true;
             this.timetableListView.GridLines = true;
             this.timetableListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.timetableListView.Location = new System.Drawing.Point(13, 26);
+            this.timetableListView.Location = new System.Drawing.Point(13, 81);
             this.timetableListView.Name = "timetableListView";
-            this.timetableListView.Size = new System.Drawing.Size(678, 359);
+            this.timetableListView.Size = new System.Drawing.Size(678, 292);
             this.timetableListView.TabIndex = 0;
             this.timetableListView.UseCompatibleStateImageBehavior = false;
             this.timetableListView.View = System.Windows.Forms.View.Details;
@@ -245,16 +265,75 @@
             this.endHeader.Text = "Koniec";
             this.endHeader.Width = 75;
             // 
-            // timetableLabel
+            // groupBox1
             // 
-            this.timetableLabel.BackColor = System.Drawing.Color.White;
-            this.timetableLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.timetableLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timetableLabel.Location = new System.Drawing.Point(13, 0);
-            this.timetableLabel.Name = "timetableLabel";
-            this.timetableLabel.Size = new System.Drawing.Size(678, 23);
-            this.timetableLabel.TabIndex = 1;
-            this.timetableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupBox1.Controls.Add(this.NextButton);
+            this.groupBox1.Controls.Add(this.PrevButton);
+            this.groupBox1.Controls.Add(this.monthRadio);
+            this.groupBox1.Controls.Add(this.weekRadio);
+            this.groupBox1.Controls.Add(this.dayRadio);
+            this.groupBox1.Location = new System.Drawing.Point(13, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(678, 33);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            // 
+            // NextButton
+            // 
+            this.NextButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.NextButton.Location = new System.Drawing.Point(572, 4);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(100, 26);
+            this.NextButton.TabIndex = 4;
+            this.NextButton.Text = "Następny";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            // 
+            // PrevButton
+            // 
+            this.PrevButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.PrevButton.Location = new System.Drawing.Point(6, 4);
+            this.PrevButton.Name = "PrevButton";
+            this.PrevButton.Size = new System.Drawing.Size(100, 26);
+            this.PrevButton.TabIndex = 3;
+            this.PrevButton.Text = "Poprzedni";
+            this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
+            // 
+            // monthRadio
+            // 
+            this.monthRadio.AutoSize = true;
+            this.monthRadio.Location = new System.Drawing.Point(415, 10);
+            this.monthRadio.Name = "monthRadio";
+            this.monthRadio.Size = new System.Drawing.Size(80, 17);
+            this.monthRadio.TabIndex = 2;
+            this.monthRadio.Text = "Miesięcznie";
+            this.monthRadio.UseVisualStyleBackColor = true;
+            this.monthRadio.CheckedChanged += new System.EventHandler(this.monthRadio_CheckedChanged);
+            // 
+            // weekRadio
+            // 
+            this.weekRadio.AutoSize = true;
+            this.weekRadio.Checked = true;
+            this.weekRadio.Location = new System.Drawing.Point(295, 10);
+            this.weekRadio.Name = "weekRadio";
+            this.weekRadio.Size = new System.Drawing.Size(83, 17);
+            this.weekRadio.TabIndex = 1;
+            this.weekRadio.TabStop = true;
+            this.weekRadio.Text = "Tygodniowo";
+            this.weekRadio.UseVisualStyleBackColor = true;
+            this.weekRadio.CheckedChanged += new System.EventHandler(this.weekRadio_CheckedChanged);
+            // 
+            // dayRadio
+            // 
+            this.dayRadio.AutoSize = true;
+            this.dayRadio.Location = new System.Drawing.Point(186, 10);
+            this.dayRadio.Name = "dayRadio";
+            this.dayRadio.Size = new System.Drawing.Size(66, 17);
+            this.dayRadio.TabIndex = 0;
+            this.dayRadio.Text = "Dziennie";
+            this.dayRadio.UseVisualStyleBackColor = true;
+            this.dayRadio.CheckedChanged += new System.EventHandler(this.dayRadio_CheckedChanged);
             // 
             // MenuForm
             // 
@@ -275,12 +354,15 @@
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
+            this.Load += new System.EventHandler(this.weekRadio_CheckedChanged);
             ((System.ComponentModel.ISupportInitialize)(this.menuBackgroundPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuLogoPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetablePictureButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesPictureButton)).EndInit();
             this.gradesPanel.ResumeLayout(false);
             this.timetablePanel.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +390,11 @@
         private System.Windows.Forms.ColumnHeader endHeader;
         private System.Windows.Forms.ColumnHeader dateHeader;
         private System.Windows.Forms.Label timetableLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton dayRadio;
+        private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.RadioButton monthRadio;
+        private System.Windows.Forms.RadioButton weekRadio;
     }
 }
