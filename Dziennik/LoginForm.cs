@@ -26,13 +26,8 @@ namespace Dziennik
         /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string password = passTextB.Text;
+            string password = HashString(passTextB.Text);
             string login = loginTextB.Text;
-            HashAlgorithm algorithm = SHA256.Create();
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in algorithm.ComputeHash(Encoding.UTF8.GetBytes(password)))
-                sb.Append(b.ToString("X2"));
-            password = sb.ToString().ToLower();
             if (db.Login(login, password))
             {
                 db.Close();
@@ -84,6 +79,17 @@ namespace Dziennik
         {
             loginTextB.Text = "Nazwa użytkownika";
             passTextB.Text = "Hasło";
+        }
+        /// <summary>
+        /// Encodes the given string using SHA256 algorithm
+        /// </summary>
+        private string HashString(string s)
+        {
+            HashAlgorithm algorithm = SHA256.Create();
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in algorithm.ComputeHash(Encoding.UTF8.GetBytes(s)))
+                sb.Append(b.ToString("X2"));
+            return sb.ToString().ToLower();
         }
     }
 }

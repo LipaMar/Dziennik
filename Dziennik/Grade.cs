@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dziennik
 {
     /// <summary>
-    /// Represents school grade. Contains informations about the subject and the value of the 
+    /// Represents school grade. Contains information about the subject name and the value of the grade.
     /// </summary>
     class Grade
     {
