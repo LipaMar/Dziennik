@@ -36,8 +36,6 @@ namespace Dziennik
         }
         private void initGradesTable()
         {
-            float sum = 0;
-            int nrOfSubjects = 0; 
             foreach (Grade x in grades)
             {
                 ListViewItem item = new ListViewItem();
@@ -47,14 +45,12 @@ namespace Dziennik
                 else
                 {
                     item.SubItems.Add(x.getGrade().ToString());
-                    sum += x.getGrade();
-                    nrOfSubjects++;
                 }
                 gradesListView.Items.Add(item);
-                averageLabel.Text = String.Format("Średnia arytmetczna {0,0:f2}", sum / nrOfSubjects);
+                averageLabel.Text = String.Format("Średnia arytmetczna {0,0:f2}", Grade.avgGrade(grades));
             }
         }
-
+       
         private void timetablePictureButton_Click(object sender, EventArgs e)
         {
             if (timetablePanel.Visible == false)

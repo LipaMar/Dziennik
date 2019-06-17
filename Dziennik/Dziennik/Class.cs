@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dziennik
 {
-    class Class
+    /// <summary>
+    /// Represents class at university. It contains information about the subject's name, date and hours in which classes take place, about the teacher and the form of classes
+    /// </summary>
+    public class Class
     {
         private string date;
         private string name;
@@ -14,15 +17,25 @@ namespace Dziennik
         private string endTime;
         private string teacher;
         private string form;
-        public Class(string d, string n, string st, string et, string t, string f)
+        /// <summary>
+        /// Initializes the Class object
+        /// </summary>
+        /// <param name="date">Date of class in format DD.MM.YYYY</param>
+        /// <param name="name">Name of the subject</param>
+        /// <param name="startTime">Class start time in format HH:MM</param>
+        /// <param name="endTime">Class end time in format HH:MM</param>
+        /// <param name="teacher">Name and surname of the lecturer </param>
+        /// <param name="form">Form of the class</param>
+        public Class(string date, string name, string startTime, string endTime, string teacher, string form)
         {
-            date = d;
-            name = n;
-            startTime = st;
-            endTime = et;
-            teacher = t;
-            form = f;
+            this.date = date;
+            this.name = name;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.teacher = teacher;
+            this.form = form;
         }
+
         public string GetDate() { return date; }
         public string GetName() { return name; }
         public string GetStart() { return startTime; }

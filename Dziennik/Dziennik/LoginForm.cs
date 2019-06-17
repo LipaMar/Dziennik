@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
-
 namespace Dziennik
 {
+    /// <summary>
+    /// Represents login form. Allows user to log in to the system.
+    /// </summary>
     public partial class LoginForm : Form
     {
         Database db;
@@ -19,17 +14,14 @@ namespace Dziennik
             InitializeComponent();
             db = new Database();
         }
-
+        /// <summary>
+        /// Encodes the given password and checks if the login and the password are correct
+        /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string password = passTextB.Text;
+            string password = User.HashString(passTextB.Text);
             string login = loginTextB.Text;
-            HashAlgorithm algorithm = SHA256.Create();
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in algorithm.ComputeHash(Encoding.UTF8.GetBytes(password)))
-                sb.Append(b.ToString("X2"));
-            password = sb.ToString().ToLower();
-            if (db.Login(login , password))
+            if (db.Login(login, password))
             {
                 db.Close();
                 this.DialogResult = DialogResult.OK;

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Dziennik
 {
-    class User
+    /// <summary>
+    /// Represents the student's account. Contains information about the index, student's name, specialization, semester, grades and schedule
+    /// </summary>
+    public class User
     {
         private string Index;
         private string Name;
@@ -20,12 +24,12 @@ namespace Dziennik
         {
             Index = index;
             Database db = new Database();
-            Grades = db.Grades(index);
-            Classes = db.Classes(index);
-            Name = db.Name(index);
-            LastName = db.LastName(index);
-            Specialization = db.Spec(index);
-            Semester = db.Semester(index);
+            Grades = db.GetGrades(index);
+            Classes = db.GetClasses(index);
+            Name = db.GetName(index);
+            LastName = db.GetLastName(index);
+            Specialization = db.GetSpec(index);
+            Semester = db.GetSemester(index);
             db.Close();
         }
         public List<Grade> GetGrades(){return Grades;}
@@ -35,5 +39,16 @@ namespace Dziennik
         public string GetLastName(){return LastName;}
         public string GetSpecialization(){return Specialization;}
         public string GetSemester(){return Semester;}
+        /// <summary>
+        /// Encodes the given string using SHA256 algorithm
+        /// </summary>
+        public static string HashString(string s)
+        {
+            HashAlgorithm algorithm = SHA256.Create();
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in algorithm.ComputeHash(Encoding.UTF8.GetBytes(s)))
+                sb.Append(b.ToString("X2"));
+            return sb.ToString().ToLower();
+        }
     }
 }
