@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 namespace Dziennik
 {
     /// <summary>
@@ -16,6 +9,9 @@ namespace Dziennik
     public partial class LoginForm : Form
     {
         Database db;
+        /// <summary>
+        /// Initializes the LoginForm object
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
@@ -26,13 +22,8 @@ namespace Dziennik
         /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string password = passTextB.Text;
+            string password = User.HashString(passTextB.Text);
             string login = loginTextB.Text;
-            HashAlgorithm algorithm = SHA256.Create();
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in algorithm.ComputeHash(Encoding.UTF8.GetBytes(password)))
-                sb.Append(b.ToString("X2"));
-            password = sb.ToString().ToLower();
             if (db.Login(login, password))
             {
                 db.Close();

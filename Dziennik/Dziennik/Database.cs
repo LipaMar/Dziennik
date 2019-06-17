@@ -11,7 +11,7 @@ namespace Dziennik
     /// <summary>
     /// Represents database containing students' data.
     /// </summary>
-    class Database
+    public class Database
     {
         private SQLiteConnection conn;
         /// <summary>

@@ -19,7 +19,8 @@ namespace Dziennik
             LoginForm loginF = new LoginForm();
             if (loginF.ShowDialog() == DialogResult.OK)
             {
-                // run Menu Form
+                MenuForm menuF = new MenuForm((string)loginF.Tag);
+                Application.Run(menuF);
             }
             else
             {

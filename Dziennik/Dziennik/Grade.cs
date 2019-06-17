@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Dziennik
 {
     /// <summary>
-    /// Represents school grade. Contains informations about the subject and the value of the 
+    /// Represents school grade. Contains information about the subject name and the value of the grade.
     /// </summary>
-    class Grade
+    public class Grade
     {
         private string subject;
         private float grade;
@@ -23,7 +23,22 @@ namespace Dziennik
             this.subject = subject;
             this.grade = grade;
         }
-        public float getGrade() {return grade;}
-        public string getSubject() {return subject;}
+        public float getGrade() { return grade; }
+        public string getSubject() { return subject; }
+        /// <summary>
+        /// Calculates the average of grades
+        /// </summary>
+        public static float avgGrade(List<Grade> grades)
+        {
+            float sum = 0;
+            int nrOfGrades = 0;
+            foreach (Grade g in grades)
+            {
+                sum += g.getGrade();
+                if (g.getGrade() != 0)
+                    nrOfGrades++;
+            }
+            return sum / nrOfGrades;
+        }
     }
 }
