@@ -216,56 +216,6 @@
             this.timetableLabel.Text = "Plan zajęć";
             this.timetableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timetableListView
-            // 
-            this.timetableListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.dateHeader,
-            this.FormHeader,
-            this.subjectHeader,
-            this.teacherHeader,
-            this.startHeader,
-            this.endHeader});
-            this.timetableListView.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.timetableListView.FullRowSelect = true;
-            this.timetableListView.GridLines = true;
-            this.timetableListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.timetableListView.Location = new System.Drawing.Point(13, 81);
-            this.timetableListView.Name = "timetableListView";
-            this.timetableListView.Size = new System.Drawing.Size(678, 292);
-            this.timetableListView.TabIndex = 0;
-            this.timetableListView.UseCompatibleStateImageBehavior = false;
-            this.timetableListView.View = System.Windows.Forms.View.Details;
-            // 
-            // dateHeader
-            // 
-            this.dateHeader.Text = "Data";
-            this.dateHeader.Width = 90;
-            // 
-            // FormHeader
-            // 
-            this.FormHeader.Text = "Typ";
-            this.FormHeader.Width = 48;
-            // 
-            // subjectHeader
-            // 
-            this.subjectHeader.Text = "Nazwa przedmiotu";
-            this.subjectHeader.Width = 209;
-            // 
-            // teacherHeader
-            // 
-            this.teacherHeader.Text = "Prowadzący";
-            this.teacherHeader.Width = 149;
-            // 
-            // startHeader
-            // 
-            this.startHeader.Text = "Początek";
-            this.startHeader.Width = 84;
-            // 
-            // endHeader
-            // 
-            this.endHeader.Text = "Koniec";
-            this.endHeader.Width = 75;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.NextButton);

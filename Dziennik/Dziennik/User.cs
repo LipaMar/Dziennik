@@ -19,7 +19,10 @@ namespace Dziennik
         private string Semester;
         private List<Grade> Grades;
         private List<Class> Classes;
-
+        /// <summary>
+        /// Initializes the Menu Form object based on the given student's index.
+        /// </summary>
+        /// <param name="index">Individual student's number(index)</param>
         public User(string index)
         {
             Index = index;
