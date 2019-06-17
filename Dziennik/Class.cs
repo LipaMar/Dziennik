@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dziennik
 {
     /// <summary>
-    /// Represents lessons at school. Contains informations about the subject and the value of the 
+    /// Represents class at university. It contains information about the subject's name, date and hours in which classes take place, about the teacher and the form of classes
     /// </summary>
     class Class
     {
@@ -18,7 +18,7 @@ namespace Dziennik
         private string teacher;
         private string form;
         /// <summary>
-        /// Initializes the class object
+        /// Initializes the Class object
         /// </summary>
         /// <param name="date">Date of class in format DD.MM.YYYY</param>
         /// <param name="name">Name of the subject</param>
