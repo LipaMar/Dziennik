@@ -17,6 +17,7 @@ namespace Dziennik
         private string endTime;
         private string teacher;
         private string form;
+
         /// <summary>
         /// Initializes the Class object
         /// </summary>

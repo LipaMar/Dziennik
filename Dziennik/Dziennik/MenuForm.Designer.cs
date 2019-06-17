@@ -109,11 +109,11 @@
             this.infoLabel.AutoSize = true;
             this.infoLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.infoLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.infoLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.infoLabel.ForeColor = System.Drawing.Color.White;
-            this.infoLabel.Location = new System.Drawing.Point(719, 23);
+            this.infoLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.infoLabel.Location = new System.Drawing.Point(720, 31);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(309, 28);
+            this.infoLabel.Size = new System.Drawing.Size(240, 22);
             this.infoLabel.TabIndex = 4;
             this.infoLabel.Text = "Informacje o użytkowniku";
             // 
@@ -133,6 +133,7 @@
             this.gradesListView.TabIndex = 0;
             this.gradesListView.UseCompatibleStateImageBehavior = false;
             this.gradesListView.View = System.Windows.Forms.View.Details;
+            this.gradesListView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.gradesListView_ColumnWidthChanging);
             // 
             // przedmiotHeader
             // 
@@ -192,8 +193,8 @@
             this.timetablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97F));
             this.timetablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.5F));
             this.timetablePanel.Controls.Add(this.timetableLabel, 1, 0);
-            this.timetablePanel.Controls.Add(this.timetableListView, 1, 2);
             this.timetablePanel.Controls.Add(this.groupBox1, 1, 1);
+            this.timetablePanel.Controls.Add(this.timetableListView, 1, 2);
             this.timetablePanel.Location = new System.Drawing.Point(0, 180);
             this.timetablePanel.Name = "timetablePanel";
             this.timetablePanel.RowCount = 3;
@@ -207,7 +208,7 @@
             // 
             this.timetableLabel.BackColor = System.Drawing.Color.White;
             this.timetableLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.timetableLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timetableLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.timetableLabel.Location = new System.Drawing.Point(13, 0);
             this.timetableLabel.Name = "timetableLabel";
             this.timetableLabel.Size = new System.Drawing.Size(678, 39);
@@ -303,9 +304,10 @@
             // monthRadio
             // 
             this.monthRadio.AutoSize = true;
+            this.monthRadio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.monthRadio.Location = new System.Drawing.Point(415, 10);
             this.monthRadio.Name = "monthRadio";
-            this.monthRadio.Size = new System.Drawing.Size(80, 17);
+            this.monthRadio.Size = new System.Drawing.Size(87, 20);
             this.monthRadio.TabIndex = 2;
             this.monthRadio.Text = "Miesięcznie";
             this.monthRadio.UseVisualStyleBackColor = true;
@@ -315,9 +317,10 @@
             // 
             this.weekRadio.AutoSize = true;
             this.weekRadio.Checked = true;
+            this.weekRadio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.weekRadio.Location = new System.Drawing.Point(295, 10);
             this.weekRadio.Name = "weekRadio";
-            this.weekRadio.Size = new System.Drawing.Size(83, 17);
+            this.weekRadio.Size = new System.Drawing.Size(92, 20);
             this.weekRadio.TabIndex = 1;
             this.weekRadio.TabStop = true;
             this.weekRadio.Text = "Tygodniowo";
@@ -327,13 +330,65 @@
             // dayRadio
             // 
             this.dayRadio.AutoSize = true;
+            this.dayRadio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dayRadio.Location = new System.Drawing.Point(186, 10);
             this.dayRadio.Name = "dayRadio";
-            this.dayRadio.Size = new System.Drawing.Size(66, 17);
+            this.dayRadio.Size = new System.Drawing.Size(71, 20);
             this.dayRadio.TabIndex = 0;
             this.dayRadio.Text = "Dziennie";
             this.dayRadio.UseVisualStyleBackColor = true;
             this.dayRadio.CheckedChanged += new System.EventHandler(this.dayRadio_CheckedChanged);
+            // 
+            // timetableListView
+            // 
+            this.timetableListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dateHeader,
+            this.FormHeader,
+            this.subjectHeader,
+            this.teacherHeader,
+            this.startHeader,
+            this.endHeader});
+            this.timetableListView.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.timetableListView.FullRowSelect = true;
+            this.timetableListView.GridLines = true;
+            this.timetableListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.timetableListView.Location = new System.Drawing.Point(13, 81);
+            this.timetableListView.Name = "timetableListView";
+            this.timetableListView.Size = new System.Drawing.Size(678, 292);
+            this.timetableListView.TabIndex = 0;
+            this.timetableListView.UseCompatibleStateImageBehavior = false;
+            this.timetableListView.View = System.Windows.Forms.View.Details;
+            this.timetableListView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.timetableListView_ColumnWidthChanging);
+            // 
+            // dateHeader
+            // 
+            this.dateHeader.Text = "Data";
+            this.dateHeader.Width = 90;
+            // 
+            // FormHeader
+            // 
+            this.FormHeader.Text = "Typ";
+            this.FormHeader.Width = 45;
+            // 
+            // subjectHeader
+            // 
+            this.subjectHeader.Text = "Nazwa przedmiotu";
+            this.subjectHeader.Width = 205;
+            // 
+            // teacherHeader
+            // 
+            this.teacherHeader.Text = "Prowadzący";
+            this.teacherHeader.Width = 162;
+            // 
+            // startHeader
+            // 
+            this.startHeader.Text = "Początek";
+            this.startHeader.Width = 84;
+            // 
+            // endHeader
+            // 
+            this.endHeader.Text = "Koniec";
+            this.endHeader.Width = 70;
             // 
             // MenuForm
             // 

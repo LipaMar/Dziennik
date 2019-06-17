@@ -31,6 +31,7 @@ namespace Dziennik
                 Console.WriteLine("Database cannot be open");
             }
         }
+
         /// <summary>
         /// Executes a SQL query to the database.
         /// </summary>
@@ -153,4 +154,3 @@ namespace Dziennik
         }
     }
 }
-
